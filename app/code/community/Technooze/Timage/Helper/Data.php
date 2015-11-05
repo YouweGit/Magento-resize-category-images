@@ -48,22 +48,13 @@ class Technooze_Timage_Helper_Data extends Mage_Core_Helper_Abstract
         $this->ext = '';
         $this->bgColor = array(255, 255, 255);
         $this->imageObj = '';
-        $this->baseUrl = $this->getBaseUrl();
+        $this->baseUrl = Mage::getBaseUrl('media');
         $this->keepTransparency = true;
         $this->aspectRatio = true;
         $this->constrainOnly = true;
         $this->keepFrame = true;
         $this->quality = null;
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    private function getBaseUrl()
-    {
-        $baseUrl = Mage::getStoreConfig('web/unsecure/base_media_url');
-        return preg_replace('#^https?://#', '//', $baseUrl);
     }
 
     /**
